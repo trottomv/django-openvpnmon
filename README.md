@@ -29,11 +29,13 @@ Quick start
 2. Add "openvpnmon" to INSTALLED_APPS in `settings.py`:
 
 ```
+  from django.conf.urls import include
+
   INSTALLED_APPS = {
   ...
   'openvpnmon',
-  'base',
-  'mon',
+  'openvpn_base',
+  'openvpn_mon',
   }
 ```
 

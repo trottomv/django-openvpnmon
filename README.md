@@ -20,13 +20,13 @@ It includes easy-rsa which is free software made by OpenVPN technologies Inc. <s
 
 Quick start
 -----------
-0. Install from pip:
+1. Install from pip:
 
 ```
   pip install git+https://github.com/trottomv/django-openvpnmon.git
 ```
 
-1. Add "openvpnmon" to INSTALLED_APPS in `settings.py`:
+2. Add "openvpnmon" to INSTALLED_APPS in `settings.py`:
 
 ```
   INSTALLED_APPS = {
@@ -37,19 +37,19 @@ Quick start
   }
 ```
 
-2. Include the openvpnmon URLconf in `urls.py`:
+3. Include the openvpnmon URLconf in `urls.py`:
 
 ```
   from django.conf.urls import include
 
   url(r'^openvpnmon/', include('openvpnmon.urls'))
 ```
-0. Download `extras` directory on your `../your/django-project/`: (if you have `svn` installed)
+4. Download `extras` directory on your `../your/django-project/`: (if you have `svn` installed)
 
 ```
   svn export https://github.com/trottomv/openvpnmon.git/trunk/extras
 ```
-0. In your `settings.py` insert this follow lines:
+5. In your `settings.py` insert this follow lines:
 
 ```
 #OpenVPNmon settings
@@ -60,8 +60,8 @@ CA_CERT = os.path.join(EASY_RSA_KEYS_DIR, 'ca.crt')
 URL_PREFIX = ""
 ```
 
-3. Run `python manage.py migrate` to create openvpnmon models.
+6. Run `python manage.py migrate` to create openvpnmon models.
 
-4. Run the development server and access to manage openvpnmon `http://127.0.0.1:8000/openvpnmon/`.
+7. Run the development server and access to manage openvpnmon `http://127.0.0.1:8000/openvpnmon/`.
 
 

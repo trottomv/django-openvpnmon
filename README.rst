@@ -33,9 +33,8 @@ Quick start
 
   INSTALLED_APPS = {
   ...
-  'openvpnmon',
-  'base',
-  'mon',
+  'openvpn_base',
+  'openvpn_mon',
   }
 ```
 

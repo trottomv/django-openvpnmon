@@ -1,0 +1,10 @@
+include LICENSE
+include README.rst
+#include base/views.py
+#recursive-include openvpnmon *
+recursive-include base * 
+recursive-include mon * 
+recursive-include base/static *
+recursive-include base/templates *
+recursive-include templates *
+#recursive-include extras *

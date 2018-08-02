@@ -6,7 +6,7 @@ import subprocess, os, datetime
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 
-from base.models import Client
+from openvpn_base.models import Client
 
 
 class OpenVPNLog(models.Model):

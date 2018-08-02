@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mon.models import OpenVPNLog
+from openvpn_mon.models import OpenVPNLog
 
 
 class OpenVPNLogAdmin(admin.ModelAdmin):

@@ -8,8 +8,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.conf import settings
 
-from base.models import Client, ACTION_CERT_DOWNLOADED, ClientActionsLog
-from base.utils import zipfile_info, get_certs_zip_content_and_notes
+from openvpn_base.models import Client, ACTION_CERT_DOWNLOADED, ClientActionsLog
+from openvpn_base.utils import zipfile_info, get_certs_zip_content_and_notes
 
 
 def index(request):

@@ -6,7 +6,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from base.models import Client, VPNSubnet, ClientActionsLog
+from openvpn_base.models import Client, VPNSubnet, ClientActionsLog
 
 
 def disable_field(field):

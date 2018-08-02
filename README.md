@@ -31,13 +31,17 @@ Quick start
 ```
   INSTALLED_APPS = {
   ...
-  'openvpnmon'
+  'openvpnmon',
+  'base',
+  'mon',
   }
 ```
 
-2. Include the myblog URLconf in `urls.py`:
+2. Include the openvpnmon URLconf in `urls.py`:
 
 ```
+  from django.conf.urls import include
+
   url(r'^openvpnmon/', include('openvpnmon.urls'))
 ```
 0. Download `extras` directory on your `../your/django-project/`: (if you have `svn` installed)

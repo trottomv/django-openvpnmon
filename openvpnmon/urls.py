@@ -6,7 +6,6 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^%s$' % settings.URL_PREFIX, base_views.index),
-    url(r'^%sadmin/' % settings.URL_PREFIX, admin.site.urls),
     url(r'^%sdisplay_certs/' % settings.URL_PREFIX,
         base_views.display_certs,
         name="display-certs"),

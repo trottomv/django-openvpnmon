@@ -6,7 +6,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from openvpn_base.models import Client, VPNSubnet, ClientActionsLog
+from openvpn_base.models import Client, VPNSubnet, ClientActionsLog, OpenVPNLog
 
 
 def disable_field(field):
@@ -209,6 +209,23 @@ class ClientActionsLogAdmin(admin.ModelAdmin):
     search_fields = ['action', 'client__common_name']
 
 
+class OpenVPNLogAdmin(admin.ModelAdmin):
+
+    list_display = ('common_name', 'vpn_ip', 'when_connect', 'when_disconnect',
+                    'vpn_iface', 'bytes_sent', 'bytes_received', 'public_ip')
+    list_filter = ('vpn_iface', 'common_name')
+    list_display_links = []
+
+    date_hierarchy = 'when_connect'
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return True
+
+
+admin.site.register(OpenVPNLog, OpenVPNLogAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(VPNSubnet, VPNSubnetAdmin)
 admin.site.register(ClientActionsLog, ClientActionsLogAdmin)

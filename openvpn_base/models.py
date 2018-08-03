@@ -1,11 +1,12 @@
-import subprocess
+import subprocess, os, datetime
 import os
 import datetime
 import logging
 
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext, ugettext_lazy as _
 from django.template.defaultfilters import slugify
+from django.db.models import Q
 from django.conf import settings
 from django.core.exceptions import PermissionDenied, ValidationError
 
@@ -14,6 +15,8 @@ from openvpnmon.exceptions import CertNotFound, CertCreationError
 
 import netutils
 import tokens
+
+#from openvpn_base.models import Client
 
 ACTION_CLIENT_ENABLED = "CLIENT ENABLED"
 ACTION_CLIENT_AUTHORIZATION_UPDATE = "CLIENT AUTHORIZATION UPDATE"
@@ -544,3 +547,24 @@ class ClientActionsLog(models.Model):
 
     def __unicode__(self):
         return u"%s %s on %s" % (self.client, self.action, self.on)
+      
+class OpenVPNLog(models.Model):
+
+    common_name = models.CharField(max_length=128)
+    public_ip = models.GenericIPAddressField(_('IP address'))
+    vpn_ip = models.GenericIPAddressField(_('VPN IP address'), db_index=True)
+    vpn_iface = models.CharField(_('VPN iface'), max_length=8, db_index=True)
+    when_connect = models.DateTimeField()
+    when_disconnect = models.DateTimeField(null=True)
+    bytes_sent = models.PositiveIntegerField(null=True, default=None)
+    bytes_received = models.PositiveIntegerField(null=True, default=None)
+
+    class Meta:
+        ordering = ["-when_connect"]
+        get_latest_by = "when_connect"
+        verbose_name = "OpenVPN log"
+
+    def __unicode__(self):
+        return "%s from %s assigned IP %s connected on %s, disconnected on %s" % (
+            self.common_name, self.public_ip, self.vpn_ip, self.when_connect,
+            self.when_disconnect)

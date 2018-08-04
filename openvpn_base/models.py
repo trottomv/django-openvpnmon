@@ -16,7 +16,6 @@ from openvpnmon.exceptions import CertNotFound, CertCreationError
 import netutils
 import tokens
 
-#from openvpn_base.models import Client
 
 ACTION_CLIENT_ENABLED = "CLIENT ENABLED"
 ACTION_CLIENT_AUTHORIZATION_UPDATE = "CLIENT AUTHORIZATION UPDATE"

@@ -72,7 +72,7 @@ class ClientAdmin(admin.ModelAdmin):
     search_fields = ('name', 'common_name', 'ip', 'company')
 
     def subnet_with_link(self, obj):
-        url = urlresolvers.reverse('admin:base_vpnsubnet_change',
+        url = urlresolvers.reverse('admin:openvpn_base_vpnsubnet_change',
                                    args=(obj.subnet.id, ))
         return u'<a href="%s">%s</a>' % (url, obj.subnet)
 

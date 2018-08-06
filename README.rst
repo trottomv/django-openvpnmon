@@ -42,7 +42,7 @@ Quick start
 ```
   from django.conf.urls import include
 
-  url(r'^openvpnmon/', include('openvpnmon.urls'))
+  url(r'^openvpnmon/', include('openvpn_base.urls'))
 ```
 4. Download `extras` directory on your `../your/django-project/`: (if you have `svn` installed)
 

@@ -9,3 +9,4 @@ build/*
 django-openvpnmon/build/*
 openvpnmon.egg-info/*
 django-openvpnmon/openvpnmon.egg-info/*
+*OLD

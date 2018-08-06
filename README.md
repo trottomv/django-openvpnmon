@@ -62,6 +62,6 @@ URL_PREFIX = ""
 
 6. Run `python manage.py migrate` to create openvpnmon models.
 
-7. Run the development server and access to manage openvpnmon `http://127.0.0.1:8000/openvpnmon/`.
+7. Run `python manage.py runserver 8000` and access to manage openvpnmon `http://127.0.0.1:8000/openvpnmon/`.
 
 

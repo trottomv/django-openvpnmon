@@ -10,8 +10,8 @@ from django.db.models import Q
 from django.conf import settings
 from django.core.exceptions import PermissionDenied, ValidationError
 
-from openvpnmon.utils import call_shell, CalledShellCommandError
-from openvpnmon.exceptions import CertNotFound, CertCreationError
+from openvpn_base.utils import call_shell, CalledShellCommandError
+from openvpn_base.exceptions import CertNotFound, CertCreationError
 
 import netutils
 import tokens

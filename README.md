@@ -29,8 +29,6 @@ Quick start
 2. Add the follow lines in `settings.py`:
 
 ```
-  from django.conf.urls import include
-
   INSTALLED_APPS = {
   ...
   'openvpn_base',
